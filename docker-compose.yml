@@ -1,0 +1,15 @@
+version: '2'
+services:
+  epaath-runner:
+    build:
+      context: .  
+      args:
+        - GITLAB_RUNNER_VER=ubuntu-bleeding
+    restart: always
+    environment:
+      CI_SERVER_URL: "https://git.olenepal.org/ci"
+      REGISTRATION_TOKEN: "YBxuq5WNyJSqc7nPi5Ai"
+      RUNNER_TAG: "dev"
+    hostname: 'gitlab-runner'
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
