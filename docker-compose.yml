@@ -3,13 +3,13 @@ services:
   epaath-runner:
     build:
       context: .  
-      args:
-        - GITLAB_RUNNER_VER=ubuntu-bleeding
     restart: always
     environment:
-      CI_SERVER_URL: "https://git.olenepal.org/ci"
-      REGISTRATION_TOKEN: "YBxuq5WNyJSqc7nPi5Ai"
-      RUNNER_TAG: "dev"
-    hostname: 'gitlab-runner'
+      CI_SERVER_URL: "https://git.olenepal.org/"
+      REGISTRATION_TOKEN: "cbcnbyzFufsvowsW6RLM"
+      RUNNER_TAG: "development"
+      PRIVILIGED_MODE: "true"
+    command: "gitlab-runner-auto-register"
+    hostname: 'DIND Runner'
     volumes:
       - "/var/run/docker.sock:/var/run/docker.sock"
